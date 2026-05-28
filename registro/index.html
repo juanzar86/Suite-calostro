@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base de Datos - Suite Calostro</title>
+    <style>
+        :root { --navy-dark: #0a3356; --navy-light: #0f4c81; --border: #cbd5e1; }
+        body { font-family: sans-serif; background-color: #f8fafc; padding: 30px; color: #1e293b; }
+        .container { max-width: 1100px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--navy-dark); padding-bottom: 15px; margin-bottom: 20px; }
+        h1 { color: var(--navy-dark); font-size: 1.6rem; }
+        .btn-excel { background-color: #15803d; color: white; border: none; padding: 10px 18px; font-weight: bold; border-radius: 5px; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; }
+        .btn-excel:hover { background-color: #166534; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.88rem; }
+        th, td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+        th { background-color: #f1f5f9; color: var(--navy-dark); font-weight: 700; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>📊 Matriz de Datos General (SPSS)</h1>
+            <div>
+                <button class="btn-excel" onclick="exportarExcel()">Descargar Matriz (Excel)</button>
+                <button style="background-color:#64748b; color:white; border:none; padding:10px; margin-left:5px; border-radius:5px; cursor:pointer;" onclick="window.location.href='../index.html'">Volver</button>
+            </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table id="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Folio</th>
+                        <th>Edad</th>
+                        <th>Género</th>
+                        <th>Servicio</th>
+                        <th>Modelo Benner</th>
+                        <th>Línea Base: Calificación Pre-Test (/8)</th>
+                        <th>Conducta Final: Calificación Post-Test (/8)</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-sujetos">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function cargarMatriz() {
+            const lista = JSON.parse(localStorage.getItem("lista_sujetos")) || [];
+            const tbody = document.getElementById("tbody-sujetos");
+            tbody.innerHTML = "";
+
+            if(lista.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:#64748b;">No hay registros capturados en esta tablet actualmente.</td></tr>`;
+                return;
+            }
+
+            lista.forEach(s => {
+                let tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td><strong>${s.folio}</strong></td>
+                    <td>${s.edad || 'N/R'} años</td>
+                    <td>${s.genero || 'N/R'}</td>
+                    <td>${s.servicio || 'N/R'}</td>
+                    <td><span style="color:#0f4c81; font-weight:600;">${s.experiencia || 'N/R'}</span></td>
+                    <td style="background-color: #fef3c7; font-weight:bold; text-align:center;">${s.preTest !== undefined ? s.preTest : 'Pendiente'}</td>
+                    <td style="background-color: #dcfce7; font-weight:bold; text-align:center;">${s.posTest !== undefined ? s.posTest : 'Pendiente'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function exportarExcel() {
+            const lista = JSON.parse(localStorage.getItem("lista_sujetos")) || [];
+            if(lista.length === 0) { alert("No hay datos para exportar."); return; }
+
+            // Generar estructura CSV compatible con Excel
+            let csvContent = "\uFEFF"; // BOM para eñes y caracteres especiales
+            csvContent += "Folio;Edad;Genero;Servicio;Modelo Patricia Benner;Calificacion Pre-Test;Calificacion Post-Test\n";
+
+            lista.forEach(s => {
+                let pre = s.preTest !== undefined ? s.preTest : "0";
+                let pos = s.posTest !== undefined ? s.posTest : "0";
+                csvContent += `${s.folio};${s.edad};${s.genero};${s.servicio};${s.experiencia};${pre};${pos}\n`;
+            });
+
+            let blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            let link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute("download", "Matriz_Datos_Suite_Calostro.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        window.onload = cargarMatriz;
+    </script>
+</body>
+</html>

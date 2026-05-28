@@ -1,0 +1,19 @@
+async function cargarApp() {
+    const app = document.getElementById('app');
+    try {
+        // Esta es la ruta exacta hacia tu carpeta Data
+        const respuesta = await fetch('Data/instrumento.json');
+        const datos = await respuesta.json();
+
+        let html = '<h1>Suite Calostro</h1>';
+        datos.modulos.forEach(mod => {
+            html += `<div class="card"><h3>${mod.titulo}</h3><p>${mod.contenido}</p></div>`;
+        });
+        
+        app.innerHTML = html;
+    } catch (error) {
+        app.innerHTML = "<h1>Error al cargar el archivo en Data/instrumento.json</h1>";
+        console.error(error);
+    }
+}
+cargarApp();

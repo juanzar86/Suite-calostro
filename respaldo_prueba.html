@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Suite Neonatal</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        .seccion { margin-bottom: 30px; border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #f9f9f9; }
+        h2 { color: #0056b3; }
+        .pregunta { margin-bottom: 15px; }
+        input { margin-top: 5px; width: 100%; padding: 8px; box-sizing: border-box; }
+        button { margin-top: 20px; padding: 10px 20px; background-color: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Instrumento de Evaluación</h1>
+    <form id="contenedor-formulario">Cargando...</form>
+
+    <script>
+        async function cargarFormulario() {
+            try {
+                // Ruta relativa a tu archivo JSON
+                const res = await fetch('./Data/instrumento.json');
+                const data = await res.json();
+                const form = document.getElementById('contenedor-formulario');
+                form.innerHTML = ""; 
+                
+                Object.keys(data).forEach(seccionKey => {
+                    let html = `<div class="seccion"><h2>${seccionKey.replace('_', ' ').toUpperCase()}</h2>`;
+                    
+                    data[seccionKey].secciones.forEach(p => {
+                        html += `<div class="pregunta">
+                                    <label>${p.label}</label><br>
+                                    <input type="text" name="${p.label}" placeholder="Escribe tu respuesta...">
+                                 </div>`;
+                    });
+                    
+                    html += `</div>`;
+                    form.innerHTML += html;
+                });
+                form.innerHTML += `<button type="submit">Guardar Respuestas</button>`;
+            } catch (err) {
+                document.getElementById('contenedor-formulario').innerHTML = 
+                    `<h3 style='color:red;'>Error al cargar: ${err}. Verifica que './Data/instrumento.json' exista.</h3>`;
+            }
+        }
+        cargarFormulario();
+    </script>
+</body>
+</html>

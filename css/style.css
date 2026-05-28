@@ -1,0 +1,67 @@
+/* Definición de colores y fuente base */
+:root {
+    --oro-calostro: #D4AF37;
+    --azul-uv: #003366;
+    --verde-seguridad: #2E8B57;
+    --fondo-suave: #F9F9F9;
+    --fuente-principal: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--fondo-suave);
+    color: var(--azul-uv);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contenedor principal con tu borde dorado distintivo */
+.container {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-top: 6px solid var(--oro-calostro);
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Diseño de botones */
+button {
+    background-color: var(--azul-uv);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: var(--verde-seguridad);
+}
+
+h1 {
+    font-weight: 700;
+    color: var(--azul-uv);
+    letter-spacing: -0.5px;
+}
+
+/* LÓGICA DE NAVEGACIÓN: ESTO EVITA QUE TODO SE VEA ENCIMADO */
+.seccion { 
+    display: none; 
+}
+
+.seccion.active { 
+    display: block; 
+}
+
+/* Estilo para las preguntas del cuestionario */
+.card { 
+    margin-bottom: 20px; 
+    padding: 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+}
