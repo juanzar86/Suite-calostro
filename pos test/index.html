@@ -1,29 +1,219 @@
-<div class="content">
-    <h3>Evaluación Final (Post-test)</h3>
-    <p>Has concluido las unidades de aprendizaje. Por favor, responde nuevamente para evaluar los conocimientos adquiridos.</p>
-    
-    <form id="postTestForm">
-        <p>1. ¿Cuál es el factor clave de la IgA secretora en la prevención de NAVM?</p>
-        <label><input type="radio" name="p1" value="a"> A) Bloquea la adherencia bacteriana en la mucosa orofaríngea</label><br>
-        <label><input type="radio" name="p1" value="b"> B) Aumenta la producción de surfactante pulmonar</label><br>
-        <label><input type="radio" name="p1" value="c"> C) Estimula la respuesta inflamatoria sistémica</label><br>
+<!DOCTYPE html>
+<html lang="es">
 
-        <p>2. Según la NOM-045-SSA2-2005, ¿cuál es el componente esencial de la vigilancia epidemiológica?</p>
-        <label><input type="radio" name="p2" value="a"> A) Registro de costos hospitalarios</label><br>
-        <label><input type="radio" name="p2" value="b"> B) Higiene de manos y control de brotes</label><br>
-        <label><input type="radio" name="p2" value="c"> C) Uso exclusivo de antibióticos de amplio espectro</label><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-test - Suite Calostro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 24px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
 
-        <p>3. ¿Cuál es el volumen recomendado de calostro para el protocolo de fricción en mucosa yugal?</p>
-        <label><input type="radio" name="p3" value="a"> A) 0.1 ml</label><br>
-        <label><input type="radio" name="p3" value="b"> B) 0.2 a 0.5 ml</label><br>
-        <label><input type="radio" name="p3" value="c"> C) 2.0 ml</label><br>
+        .content h3 {
+            margin-top: 0;
+            color: #003366;
+        }
 
-        <p>4. ¿Cada cuánto tiempo se debe repetir el ciclo de calostroterapia en el paciente neonatal?</p>
-        <label><input type="radio" name="p4" value="a"> A) Cada 12 horas</label><br>
-        <label><input type="radio" name="p4" value="b"> B) Cada 8 horas</label><br>
-        <label><input type="radio" name="p4" value="c"> C) Cada 4 horas</label><br>
+        .content p {
+            color: #475569;
+        }
 
-        <br>
-        <button type="submit" class="btn-principal">Enviar Resultados del Post-test</button>
-    </form>
-</div>
+        label {
+            display: block;
+            margin: 8px 0;
+            font-size: 0.95rem;
+            color: #1f2937;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .page-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .page-nav a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+        }
+
+        .page-nav a:hover {
+            background: #e2efff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="page-nav">
+            <a href="../registro/index.html">Registro</a>
+        </nav>
+
+        <div class="content">
+            <h3>Evaluación Final (Post-test)</h3>
+            <p>Has concluido las unidades de aprendizaje. Por favor, responde nuevamente para evaluar los conocimientos
+                adquiridos.</p>
+
+            <form id="postTestForm">
+                <h4>Sección A: Conocimientos sobre NAVM</h4>
+                <p>1. El mantenimiento de la cabecera en el neonato ventilado es una medida crítica. ¿Cuál es la
+                    inclinación recomendada?</p>
+                <label><input type="radio" name="p1" value="a"> a) Posición supina plana (0°).</label>
+                <label><input type="radio" name="p1" value="b"> b) Elevación leve de 10° a 15°.</label>
+                <label><input type="radio" name="p1" value="c"> c) Elevación de 30° a 45°.</label>
+                <label><input type="radio" name="p1" value="d"> d) Posición de Trendelenburg invertido a 60°.</label>
+
+                <p>2. En relación con la higiene bucal en el Bundle de NAVM, se recomienda:</p>
+                <label><input type="radio" name="p2" value="a"> a) Realizarla únicamente cuando se observen secreciones
+                    visibles.</label>
+                <label><input type="radio" name="p2" value="b"> b) Realizarla cada 4 a 6 horas con el antiséptico
+                    protocolizado (ej. Clorhexidina 0.12%).</label>
+                <label><input type="radio" name="p2" value="c"> c) Limpiar solo con agua destilada una vez al
+                    día.</label>
+                <label><input type="radio" name="p2" value="d"> d) Evitar la higiene bucal para no desplazar el tubo
+                    endotraqueal.</label>
+
+                <p>3. Sobre la presión del manguito endotraqueal (cuff) en neonatos (cuando se utilizan tubos con
+                    balón), la meta teórica es:</p>
+                <label><input type="radio" name="p3" value="a"> a) Mantenerla por debajo de 10 cmH2O.</label>
+                <label><input type="radio" name="p3" value="b"> b) Mantenerla entre 20 y 30 cmH2O para prevenir
+                    microaspiraciones.</label>
+                <label><input type="radio" name="p3" value="c"> c) Inflar hasta que no se escuche fuga aérea, sin medir
+                    presión.</label>
+                <label><input type="radio" name="p3" value="d"> d) Mantenerla siempre en 40 cmH2O para asegurar la vía
+                    aérea.</label>
+
+                <p>4. Según el bundle de prevención, ¿cuál es la conducta ante la condensación de agua en los circuitos
+                    del ventilador?</p>
+                <label><input type="radio" name="p4" value="a"> a) Vaciar el agua hacia el humidificador para no
+                    desperdiciar líquido.</label>
+                <label><input type="radio" name="p4" value="b"> b) Desconectar y sacudir las tubuladuras hacia el
+                    exterior.</label>
+                <label><input type="radio" name="p4" value="c"> c) Drenar el agua hacia las trampas de agua, evitando
+                    que fluya hacia el paciente.</label>
+                <label><input type="radio" name="p4" value="d"> d) No manipular los circuitos hasta el cambio
+                    semanal.</label>
+
+                <p>5. ¿Cuál es la recomendación actual respecto al cambio rutinario de los circuitos del ventilador
+                    mecánico para reducir el riesgo de Neumonía Asociada a la Ventilación Mecánica (NAVM)?</p>
+                <label><input type="radio" name="p5" value="a"> a) Cambiar los circuitos estrictamente cada 24 horas de
+                    forma obligatoria.</label>
+                <label><input type="radio" name="p5" value="b"> b) No cambiarlos de forma rutinaria, sino únicamente si
+                    están visiblemente sucios, dañados o por mal funcionamiento del equipo.</label>
+                <label><input type="radio" name="p5" value="c"> c) Realizar el cambio de circuitos cada tercer día (72
+                    horas) de manera protocolizada.</label>
+                <label><input type="radio" name="p5" value="d"> d) Cambiar los circuitos cada vez que se realice la
+                    aspiración de secreciones.</label>
+
+                <h4>Sección B: Conocimientos sobre calostroterapia</h4>
+                <p>6. ¿Cuál es el volumen de calostro recomendado para la administración orofaríngea en recién nacidos
+                    de muy bajo peso de nacimiento?</p>
+                <label><input type="radio" name="p6" value="a"> a) 0.5 a 1.0 ml por intervención.</label>
+                <label><input type="radio" name="p6" value="b"> b) 0.2 ml por cada mejilla (0.4 ml en total).</label>
+                <label><input type="radio" name="p6" value="c"> c) 1.0 ml distribuido en toda la cavidad oral.</label>
+                <label><input type="radio" name="p6" value="d"> d) Solo lo que alcance a impregnar un hisopo.</label>
+
+                <p>7. Según la evidencia de inmunoterapia oral, la primera administración debe realizarse
+                    preferentemente:</p>
+                <label><input type="radio" name="p7" value="a"> a) Después de las 72 horas de vida.</label>
+                <label><input type="radio" name="p7" value="b"> b) Tan pronto como sea posible, idealmente antes de las
+                    24 horas.</label>
+                <label><input type="radio" name="p7" value="c"> c) Una vez que el neonato tolere la alimentación
+                    enteral.</label>
+                <label><input type="radio" name="p7" value="d"> d) Solo después de completar el esquema de antibióticos
+                    inicial.</label>
+
+                <p>8. ¿Cuál es la técnica correcta para la administración de calostro orofaríngeo?</p>
+                <label><input type="radio" name="p8" value="a"> a) Instilación rápida con jeringa hacia la orofaringe
+                    posterior.</label>
+                <label><input type="radio" name="p8" value="b"> b) Aplicación suave en la mucosa yugal (interior de las
+                    mejillas) permitiendo la absorción.</label>
+                <label><input type="radio" name="p8" value="c"> c) Aplicación sobre la lengua para estimular el reflejo
+                    de succión.</label>
+                <label><input type="radio" name="p8" value="d"> d) Mezclar con leche de fórmula para facilitar la
+                    deglución.</label>
+
+                <p>9. ¿Cuál es el principal beneficio inmunológico local de la calostroterapia orofaríngea?</p>
+                <label><input type="radio" name="p9" value="a"> a) Aporte calórico inmediato para el
+                    crecimiento.</label>
+                <label><input type="radio" name="p9" value="b"> b) Estimulación del tejido linfoide asociado a mucosas
+                    (MALT).</label>
+                <label><input type="radio" name="p9" value="c"> c) Reducción del tiempo de fototerapia.</label>
+                <label><input type="radio" name="p9" value="d"> d) Prevención mecánica de la formación de placa
+                    bacteriana.</label>
+
+                <p>10. Durante la administración de calostro orofaríngeo a un neonato de muy bajo peso con ventilación
+                    mecánica, el paciente presenta un episodio leve de bradicardia. ¿Cuál es la conducta inmediata
+                    basada en la seguridad del paciente?</p>
+                <label><input type="radio" name="p10" value="a"> a) Suspender inmediatamente la intervención, estabilizar
+                    al paciente y reevaluar la tolerancia antes de reanudar.</label>
+                <label><input type="radio" name="p10" value="b"> b) Continuar la aplicación más rápido para terminar la
+                    intervención lo antes posible.</label>
+                <label><input type="radio" name="p10" value="c"> c) Aspirar enérgicamente la orofaringe posterior de
+                    inmediato.</label>
+                <label><input type="radio" name="p10" value="d"> d) Registrar el evento en la hoja de enfermería y
+                    continuar con la dosis programada.</label>
+
+                <br>
+                <button type="submit" class="btn-principal">Enviar Resultados del Post-test</button>
+            </form>
+            <div id="resultado" style="margin-top:20px; font-size:1rem; color:#1f2937;"></div>
+        </div>
+    </div>
+
+    <script>
+        const respuestasCorrectas = {
+            p1: 'c',
+            p2: 'b',
+            p3: 'b',
+            p4: 'c',
+            p5: 'b',
+            p6: 'b',
+            p7: 'b',
+            p8: 'b',
+            p9: 'b',
+            p10: 'a'
+        };
+
+        document.getElementById('postTestForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let score = 0;
+            for (const pregunta in respuestasCorrectas) {
+                const respuesta = document.querySelector(`input[name="${pregunta}"]:checked`);
+                if (respuesta && respuesta.value === respuestasCorrectas[pregunta]) {
+                    score++;
+                }
+            }
+
+            const folio = localStorage.getItem('current_registro');
+            if (folio) {
+                const registros = JSON.parse(localStorage.getItem('registros_datos')) || [];
+                const registro = registros.find(r => r.folio === folio);
+                if (registro) {
+                    registro.postTest = score;
+                    localStorage.setItem('registros_datos', JSON.stringify(registros));
+                }
+            }
+
+            document.getElementById('resultado').textContent = `Tu calificación es ${score}/10`;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,80 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Suite Neonatal Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suite Calostro - Inicio</title>
     <style>
-        body { 
-            background-color: #dbeaf5; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-            font-family: 'Segoe UI', sans-serif; 
-        }
-
-        .gota-container {
-            width: 320px; 
-            height: 480px; 
-            background: linear-gradient(135deg, #fffce8, #ffd700);
-            clip-path: path('M160,20 C160,20 300,180 300,300 C300,400 240,460 160,460 C80,460 20,400 20,300 C20,180 160,20 160,20 Z');
-            
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-evenly; /* Distribuye el espacio equitativamente */
-            align-items: center;
-            text-align: center;
-            padding: 80px 20px 40px 20px; /* Más espacio arriba para bajar los elementos */
+        * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        .step { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
+        body {
+            background: linear-gradient(135deg, #dbeaf5 0%, #e8f4ff 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 48px 32px;
+            max-width: 600px;
             width: 100%;
         }
 
-        .icon-circle {
-            background: #ffffff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #b39200;
-            margin-bottom: 4px;
-            font-size: 22px;
+        h1 {
+            text-align: center;
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 16px;
         }
 
-        h3 { margin: 2px 0; color: #5c4a00; font-size: 0.9em; font-weight: 800; }
-        p { margin: 0; font-size: 0.7em; color: #7a6600; font-weight: 600; }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-pre-test {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .btn-pre-test:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-datos {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .btn-datos:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn-intervenciones {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #5c4a00;
+        }
+
+        .btn-intervenciones:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-post-test {
+            background: linear-gradient(135deg, #00b894 0%, #00d2d3 100%);
+        }
+
+        .btn-post-test:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 184, 148, 0.4);
+        }
+
+        .btn-registro {
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6348 100%);
+        }
+
+        .btn-registro:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 99, 72, 0.4);
+        }
+
+        .icon {
+            font-size: 1.6rem;
+        }
+
+        .arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-intervenciones.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 2px solid rgba(92, 74, 0, 0.2);
+        }
+
+        .submenu.active {
+            display: flex;
+        }
+
+        .submenu a {
+            padding: 12px 16px;
+            background: rgba(255, 215, 0, 0.15);
+            border-radius: 8px;
+            text-decoration: none;
+            color: #5c4a00;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            margin-left: 16px;
+        }
+
+        .submenu a:hover {
+            background: rgba(255, 215, 0, 0.3);
+            transform: translateX(4px);
+        }
+
+        .submenu a::before {
+            content: "→ ";
+            margin-right: 8px;
+        }
     </style>
 </head>
+
 <body>
+    <div class="container">
+        <h1>� Suite Calostro</h1>
+        <p class="subtitle">Sistema de Capacitación Neonatal</p>
 
-    <main class="gota-container">
-        <section class="step">
-            <div class="icon-circle">🫁</div>
-            <h3>PRE-TEST</h3>
-            <p>Evaluación Inicial</p>
-        </section>
+        <div class="nav-buttons">
+            <!-- Datos Generales -->
+            <a href="datos-generales/index.html" class="btn-primary btn-datos">
+                <span>
+                    <span class="icon">📝</span> Datos Generales
+                </span>
+            </a>
 
-        <section class="step">
-            <div class="icon-circle">👩‍⚕️</div>
-            <h3>INTERVENCIÓN</h3>
-            <p>Capacitación y Módulos</p>
-        </section>
+            <!-- Pre-Test -->
+            <a href="pre test/index.html" class="btn-primary btn-pre-test">
+                <span>
+                    <span class="icon">📋</span> Pre-Test
+                </span>
+            </a>
 
-        <section class="step">
-            <div class="icon-circle">📊</div>
-            <h3>POST-TEST</h3>
-            <p>Evaluación Final</p>
-        </section>
-    </main>
+            <!-- Intervenciones (expandible) -->
+            <button class="btn-primary btn-intervenciones" onclick="toggleSubmenu()">
+                <span>
+                    <span class="icon">👩‍🏫</span> Intervenciones
+                </span>
+                <span class="arrow">▼</span>
+            </button>
 
+            <div class="submenu" id="submenu">
+                <a href="modulos/index.html">Módulo 1: Mapeo de Brechas</a>
+                <a href="modulos/index.html">Módulo 2: Marco Normativo</a>
+                <a href="modulos/index.html">Módulo 3: Inmunoterapia Oral</a>
+                <a href="modulos/index.html">Módulo 4: Técnica Operativa</a>
+                <a href="modulos/index.html">Módulo 5: Integración Clínica</a>
+            </div>
+
+            <!-- Post-Test -->
+            <a href="pos test/index.html" class="btn-primary btn-post-test">
+                <span>
+                    <span class="icon">📊</span> Post-Test
+                </span>
+            </a>
+
+            <!-- Registro -->
+            <a href="registro/index.html" class="btn-primary btn-registro">
+                <span>
+                    <span class="icon">📈</span> Registro de Datos
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu() {
+            const submenu = document.getElementById('submenu');
+            const btn = document.querySelector('.btn-intervenciones');
+            submenu.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+    </script>
 </body>
+
 </html>

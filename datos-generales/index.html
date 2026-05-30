@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cédula de Datos Generales - Suite Calostro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background: #f4f7f9;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #003366;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        .form-section {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e1e8ed;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+        }
+
+        .form-section h3 {
+            color: #003366;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .page-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .page-nav a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+        }
+
+        .page-nav a:hover {
+            background: #e2efff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="page-nav">
+        <a href="../index.html">Inicio</a>
+        <a href="../pre test/index.html">Pre-test</a>
+        <a href="../modulos/index.html">Módulos</a>
+        <a href="../pos test/index.html">Post-test</a>
+    </nav>
+
+    <div class="container">
+        <h1>📋 Cédula de Datos Generales</h1>
+        <p class="subtitle">Por favor, complete la siguiente información para fines de estadística descriptiva.</p>
+
+        <form id="datosGeneralesForm">
+            <!-- Datos Demográficos -->
+            <div class="form-section">
+                <h3>Datos Demográficos</h3>
+
+                <div class="form-group">
+                    <label for="edad">Edad (años)</label>
+                    <input type="number" id="edad" name="edad" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Sexo</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="sexo" value="femenino"> Femenino</label>
+                        <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="gradoAcademico">Grado Académico</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gradoAcademico" value="tecnico"> Técnico en Enfermería</label>
+                        <label><input type="radio" name="gradoAcademico" value="licenciatura"> Licenciatura</label>
+                        <label><input type="radio" name="gradoAcademico" value="especialidad"> Especialidad</label>
+                        <label><input type="radio" name="gradoAcademico" value="maestria"> Maestría</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos Laborales -->
+            <div class="form-section">
+                <h3>Datos Laborales</h3>
+
+                <div class="form-group">
+                    <label>Turno Laboral</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="turno" value="matutino"> Matutino</label>
+                        <label><input type="radio" name="turno" value="vespertino"> Vespertino</label>
+                        <label><input type="radio" name="turno" value="nocturno"> Nocturno</label>
+                        <label><input type="radio" name="turno" value="jornada"> Jornada Acumulada</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="antiguedad">Antigüedad Laboral (años)</label>
+                    <input type="number" id="antiguedad" name="antiguedad" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="experiencia">Tiempo en UCIN/Neonatología (años)</label>
+                    <input type="number" id="experiencia" name="experiencia" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de Contratación</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="contratacion" value="base"> Base/Plaza</label>
+                        <label><input type="radio" name="contratacion" value="eventual"> Contrato Eventual</label>
+                        <label><input type="radio" name="contratacion" value="interinato"> Interinato</label>
+                        <label><input type="radio" name="contratacion" value="otro"> Otro</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capacitación Previa -->
+            <div class="form-section">
+                <h3>Capacitación Previa</h3>
+
+                <div class="form-group">
+                    <label>¿Ha recibido capacitación previa sobre IAAS, NAVM o LACTANCIA MATERNA en el último
+                        año?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="capacitacion" value="si"> Sí</label>
+                        <label><input type="radio" name="capacitacion" value="no"> No</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Guardar Datos y Continuar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('datosGeneralesForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const folio = 'S' + Date.now();
+
+            // Capturar datos
+            const datos = {
+                folio,
+                edad: document.getElementById('edad').value,
+                sexo: document.querySelector('input[name="sexo"]:checked')?.value,
+                gradoAcademico: document.querySelector('input[name="gradoAcademico"]:checked')?.value,
+                turno: document.querySelector('input[name="turno"]:checked')?.value,
+                antiguedad: document.getElementById('antiguedad').value,
+                experiencia: document.getElementById('experiencia').value,
+                contratacion: document.querySelector('input[name="contratacion"]:checked')?.value,
+                capacitacion: document.querySelector('input[name="capacitacion"]:checked')?.value,
+                preTest: null,
+                postTest: null,
+                fecha: new Date().toISOString()
+            };
+
+            // Guardar en localStorage
+            let registros = JSON.parse(localStorage.getItem('registros_datos')) || [];
+            registros.push(datos);
+            localStorage.setItem('registros_datos', JSON.stringify(registros));
+            localStorage.setItem('current_registro', folio);
+
+            // Redirigir a pre-test
+            alert('Datos guardados exitosamente. Procediendo al Pre-test...');
+            window.location.href = '../pre test/index.html';
+        });
+    </script>
+</body>
+
+</html>

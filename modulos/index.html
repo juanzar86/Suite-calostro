@@ -1,66 +1,225 @@
-<!-- Módulo 1 -->
-<div class="modulo">
-    <div class="header diag" onclick="this.nextElementSibling.classList.toggle('active')">
-        Módulo 1: Mapeo de Brechas <span>➕</span>
-    </div>
-    <div class="content">
-        <p><strong>Epidemiología de la NAVM:</strong> Afecta al 25% de los neonatos ventilados a nivel mundial[cite: 1, 2, 3].</p>
-        <p><strong>Impacto:</strong> Incremento de 19 a 44 días de estancia hospitalaria y un costo incremental de hasta $21,000 USD por episodio[cite: 1, 2, 3].</p>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="es">
 
-<!-- Módulo 2 -->
-<div class="modulo">
-    <div class="header diag" onclick="this.nextElementSibling.classList.toggle('active')">
-        Módulo 2: Marco Normativo <span>➕</span>
-    </div>
-    <div class="content">
-        <p><strong>NOM-045-SSA2-2005:</strong> Vigilancia epidemiológica obligatoria para el control y prevención de infecciones nosocomiales[cite: 1, 2, 4].</p>
-        <p><strong>Higiene de Manos:</strong> El primer eslabón fundamental para romper la cadena de transmisión de patógenos[cite: 1, 2, 4].</p>
-    </div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulos - Suite Calostro</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            background: #f4f7f9;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
 
-<!-- Módulo 3 -->
-<div class="modulo">
-    <div class="header interv" onclick="this.nextElementSibling.classList.toggle('active')">
-        Módulo 3: Inmunoterapia Oral <span>➕</span>
-    </div>
-    <div class="content">
-        <p><strong>Composición del Calostro:</strong></p>
-        <ul>
-            <li><strong>IgA Secretora:</strong> Recubre la mucosa orofaríngea evitando la adherencia bacteriana[cite: 1, 2, 4].</li>
-            <li><strong>Lactoferrina:</strong> Agente bacteriostático de amplio espectro[cite: 1, 2, 4].</li>
-            <li><strong>Citocinas:</strong> Modulan la respuesta inflamatoria local y sistémica[cite: 1, 2, 4].</li>
-        </ul>
-    </div>
-</div>
+        .page-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
 
-<!-- Módulo 4 -->
-<div class="modulo">
-    <div class="header interv" onclick="this.nextElementSibling.classList.toggle('active')">
-        Módulo 4: Técnica Operativa (TOC) <span>➕</span>
-    </div>
-    <div class="content">
-        <p><strong>Protocolo TOC:</strong></p>
-        <ol>
-            <li><strong>Preparación:</strong> Higiene estricta y extracción de 0.2 a 0.5 ml de calostro fresco[cite: 1, 2, 4].</li>
-            <li><strong>Aplicación:</strong> Fricción suave en mucosa yugal derecha e izquierda con hisopo estéril saturado[cite: 1, 2, 4].</li>
-            <li><strong>Frecuencia:</strong> Repetición del ciclo cada 4 horas (Bundle de seguridad)[cite: 1, 2, 4].</li>
-        </ol>
-    </div>
-</div>
+        .page-nav a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+        }
 
-<!-- Módulo 5 -->
-<div class="modulo">
-    <div class="header interv" onclick="this.nextElementSibling.classList.toggle('active')">
-        Módulo 5: Integración Clínica <span>➕</span>
-    </div>
-    <div class="content">
-        <p><strong>Seguridad de Enfermería:</strong></p>
-        <ul>
-            <li>Registro estricto en la hoja de enfermería y expediente[cite: 1, 2, 4].</li>
-            <li>Identificación de contraindicaciones clínicas[cite: 1, 2, 4].</li>
-            <li>Seguimiento de metas internacionales de seguridad[cite: 1, 2, 4].</li>
-        </ul>
-    </div>
-</div>
+        .page-nav a:hover {
+            background: #e2efff;
+        }
+
+        .module-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .module-links a {
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: #e2efff;
+            color: #003366;
+            font-weight: 700;
+            border: 1px solid #cbd5e1;
+            transition: all 0.2s ease;
+        }
+
+        .module-links a:hover {
+            transform: translateY(-2px);
+            background: #dbeaf5;
+        }
+
+        .gota-container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #fffce8, #ffd700);
+            padding: 32px;
+            border-radius: 28px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .modulo {
+            margin-bottom: 16px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            cursor: pointer;
+            padding: 18px 20px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: #3f3d56;
+        }
+
+        .content {
+            display: none;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #3b3b3b;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .content ul,
+        .content ol {
+            margin: 10px 0 0 20px;
+        }
+
+        .content p {
+            margin: 0 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="page-nav">
+        <a href="../index.html">Inicio</a>
+        <a href="../registro/index.html">Registro</a>
+    </nav>
+
+    <main class="gota-container">
+        <!-- Módulo 1 -->
+        <div id="mod1" class="modulo">
+            <div class="header" onclick="this.nextElementSibling.classList.toggle('active')">
+                Módulo 1: Mapeo de Brechas <span>➕</span>
+            </div>
+            <div class="content active">
+                <p><strong>Epidemiología de la NAVM:</strong> Afecta al 25% de los neonatos ventilados a nivel
+                    mundial[cite: 1, 2, 3].</p>
+                <p><strong>Impacto:</strong> Incremento de 19 a 44 días de estancia hospitalaria y un costo incremental
+                    de hasta $21,000 USD por episodio[cite: 1, 2, 3].</p>
+                <p><strong>Material de apoyo:</strong> <a href="Prevencion de NAVM.pdf" target="_blank">Descargar PDF de
+                        prevención de NAVM</a> · <a
+                        href="https://prezi.com/view/nid9TdrpxXduNz2kFUkK/?referral_token=NBG-FRlnB3FN&amp;authuser=0"
+                        target="_blank">Ver la presentación en Prezi</a></p>
+            </div>
+        </div>
+
+        <!-- Módulo 2 -->
+        <div id="mod2" class="modulo">
+            <div class="header" onclick="this.nextElementSibling.classList.toggle('active')">
+                Módulo 2: Marco Normativo <span>➕</span>
+            </div>
+            <div class="content active">
+                <p><strong>NOM-045-SSA2-2005:</strong> Vigilancia epidemiológica obligatoria para el control y
+                    prevención de infecciones nosocomiales[cite: 1, 2, 4].</p>
+                <p><strong>Higiene de Manos:</strong> El primer eslabón fundamental para romper la cadena de transmisión
+                    de patógenos[cite: 1, 2, 4].</p>
+                <p><strong>Material de apoyo:</strong> <a href="Prevencion de IAAS y NAVM en Neonatos.pdf"
+                        target="_blank">Descargar PDF de prevención de IAAS y NAVM</a> · <a
+                        href="https://prezi.com/view/PyVyMFB0YjjnRLrHg2p6/?referral_token=NBG-FRlnB3FN&amp;authuser=0"
+                        target="_blank">Ver la presentación en Prezi</a></p>
+            </div>
+        </div>
+
+        <!-- Módulo 3 -->
+        <div id="mod3" class="modulo">
+            <div class="header" onclick="this.nextElementSibling.classList.toggle('active')">
+                Módulo 3: Inmunoterapia Oral <span>➕</span>
+            </div>
+            <div class="content active">
+                <p><strong>Composición del Calostro:</strong></p>
+                <ul>
+                    <li><strong>IgA Secretora:</strong> Recubre la mucosa orofaríngea evitando la adherencia
+                        bacteriana[cite: 1, 2, 4].</li>
+                    <li><strong>Lactoferrina:</strong> Agente bacteriostático de amplio espectro[cite: 1, 2, 4].</li>
+                    <li><strong>Citocinas:</strong> Modulan la respuesta inflamatoria local y sistémica[cite: 1, 2, 4].
+                    </li>
+                </ul>
+                <p><strong>Material de apoyo:</strong> <a href="El Calostro como Escudo Inmunologico.pdf"
+                        target="_blank">Descargar PDF El Calostro como Escudo Inmunológico</a> · <a
+                        href="https://prezi.com/view/EfC6LweJRtwMs4cyICGM/?referral_token=NBG-FRlnB3FN&amp;authuser=0"
+                        target="_blank">Ver la presentación en Prezi</a></p>
+            </div>
+        </div>
+
+        <!-- Módulo 4 -->
+        <div id="mod4" class="modulo">
+            <div class="header" onclick="this.nextElementSibling.classList.toggle('active')">
+                Módulo 4: Técnica Operativa (TOC) <span>➕</span>
+            </div>
+            <div class="content active">
+                <p><strong>Protocolo TOC:</strong></p>
+                <ol>
+                    <li><strong>Preparación:</strong> Higiene estricta y extracción de 0.2 a 0.5 ml de calostro
+                        fresco[cite: 1, 2, 4].</li>
+                    <li><strong>Aplicación:</strong> Fricción suave en mucosa yugal derecha e izquierda con hisopo
+                        estéril saturado[cite: 1, 2, 4].</li>
+                    <li><strong>Frecuencia:</strong> Repetición del ciclo cada 4 horas (Bundle de seguridad)[cite: 1, 2,
+                        4].</li>
+                </ol>
+                <p><strong>Material de apoyo:</strong> <a href="Calostroterapia Neonatal - Protocolo Clinico.pdf"
+                        target="_blank">Descargar PDF de Calostroterapia Neonatal</a> · <a
+                        href="https://prezi.com/view/d2rtDosg4utnexu6p8OR/?referral_token=NBG-FRlnB3FN&amp;authuser=0"
+                        target="_blank">Ver la presentación en Prezi</a></p>
+            </div>
+        </div>
+
+        <!-- Módulo 5 -->
+        <div id="mod5" class="modulo">
+            <div class="header" onclick="this.nextElementSibling.classList.toggle('active')">
+                Módulo 5: Integración Clínica <span>➕</span>
+            </div>
+            <div class="content active">
+                <p><strong>Seguridad de Enfermería:</strong></p>
+                <ul>
+                    <li>Registro estricto en la hoja de enfermería y expediente[cite: 1, 2, 4].</li>
+                    <li>Identificación de contraindicaciones clínicas[cite: 1, 2, 4].</li>
+                    <li>Seguimiento de metas internacionales de seguridad[cite: 1, 2, 4].</li>
+                </ul>
+                <p><strong>Material de apoyo:</strong> <a href="Consolidacion de la Practica de Enfermeria.pdf"
+                        target="_blank">Descargar PDF Consolidación de la Práctica de Enfermería</a> · <a
+                        href="https://prezi.com/view/zG4pl3sNKRPvbSSdoYeX/?referral_token=NBG-FRlnB3FN&amp;authuser=0"
+                        target="_blank">Ver la presentación en Prezi</a></p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('.header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.nextElementSibling.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
