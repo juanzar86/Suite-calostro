@@ -2,32 +2,79 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suite Calostro | Inicio</title>
-    <!-- Asegúrate de que esta ruta a tu CSS sea correcta -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Suite Neonatal Pro</title>
+    <style>
+        body { 
+            background-color: #dbeaf5; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            font-family: 'Segoe UI', sans-serif; 
+        }
+
+        .gota-container {
+            width: 320px; 
+            height: 480px; 
+            background: linear-gradient(135deg, #fffce8, #ffd700);
+            clip-path: path('M160,20 C160,20 300,180 300,300 C300,400 240,460 160,460 C80,460 20,400 20,300 C20,180 160,20 160,20 Z');
+            
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-evenly; /* Distribuye el espacio equitativamente */
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px 40px 20px; /* Más espacio arriba para bajar los elementos */
+            box-sizing: border-box;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .step { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            width: 100%;
+        }
+
+        .icon-circle {
+            background: #ffffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #b39200;
+            margin-bottom: 4px;
+            font-size: 22px;
+        }
+
+        h3 { margin: 2px 0; color: #5c4a00; font-size: 0.9em; font-weight: 800; }
+        p { margin: 0; font-size: 0.7em; color: #7a6600; font-weight: 600; }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Suite Calostro</h1>
-        <p>Prevención de NAVM en el Entorno Neonatal</p>
-    </header>
+    <main class="gota-container">
+        <section class="step">
+            <div class="icon-circle">🫁</div>
+            <h3>PRE-TEST</h3>
+            <p>Evaluación Inicial</p>
+        </section>
 
-    <main class="container">
-        <section class="dashboard">
-            <h2>Panel de Control</h2>
-            <p>Bienvenido, profesional de enfermería. Seleccione una opción para continuar:</p>
-            
-            <div class="menu-acciones">
-                <!-- Este botón lleva al archivo de módulos que ya creaste -->
-                <a href="modulos/modulos.html" class="btn-principal">
-                    Ir a Unidades de Aprendizaje
-                </a>
-            </div>
+        <section class="step">
+            <div class="icon-circle">👩‍⚕️</div>
+            <h3>INTERVENCIÓN</h3>
+            <p>Capacitación y Módulos</p>
+        </section>
+
+        <section class="step">
+            <div class="icon-circle">📊</div>
+            <h3>POST-TEST</h3>
+            <p>Evaluación Final</p>
         </section>
     </main>
 
-    <script src="js/router.js"></script>
 </body>
 </html>

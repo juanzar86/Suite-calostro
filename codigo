@@ -1,0 +1,17 @@
+function doGet() {
+  return HtmlService.createTemplateFromFile('index')
+      .evaluate()
+      .setTitle('Suite Neonatal')
+      .addMetaTag('viewport', 'width=device-width, initial-scale=1');
+}
+
+// Aquí entregamos los datos directamente al frontend
+function obtenerDatos() {
+  return {
+    "modulos": [
+      { "titulo": "Introducción", "contenido": "Protocolos básicos de seguridad neonatal." },
+      { "titulo": "Calostroterapia", "contenido": "Implementación y beneficios en el recién nacido." },
+      { "titulo": "Prevención NAVM", "contenido": "Bundle de prevención de neumonía asociada a ventilación mecánica." }
+    ]
+  };
+}
